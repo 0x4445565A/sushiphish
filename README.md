@@ -8,7 +8,11 @@ go install github.com/0x4445565A/sushiphish
 ```
 
 ## Usage
+```
 sushiphish input.txt out.csv
+# OR optionally
+sushiphish input.txt out.csv hotword1 hotword2 hotwordN
+```
 
 
 ## Inspiration

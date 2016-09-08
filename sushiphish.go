@@ -162,11 +162,22 @@ func loadDomains(inputFileName string) {
 func main() {
 	if len(os.Args) < 3 {
 		fmt.Printf("Usage: %s input.txt out.csv\n", os.Args[0])
+		fmt.Printf("Optional: %s input.txt out.csv hotword1 hotword2 ... hotwordN\n", os.Args[0])
 		return
 	}
 
 	inputFileName := os.Args[1]
 	csvFileName := os.Args[2]
+
+	// Import custom hotwords
+	if len(os.Args) > 3 {
+      hotList = []string{}
+      for i := 3; i < len(os.Args); i++ {
+      	hotList = append(hotList, os.Args[i])
+      }
+	}
+
+	fmt.Println("Using the following words as hot words...\n", hotList)
 
 	loadDomains(inputFileName)
 
