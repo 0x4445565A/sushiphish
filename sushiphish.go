@@ -85,7 +85,7 @@ func buildCSV(profiles map[string]suspiciousDomain, fileName string) {
 			v.name,
 			strings.Join(v.ips, " "),
 			strings.Join(v.dns, " "),
-			v.whois,
+			strings.Replace(v.whois, "\"", "", 0),
 		}
 		records = append(records, s)
 	}
@@ -95,7 +95,9 @@ func buildCSV(profiles map[string]suspiciousDomain, fileName string) {
 	}
 	defer file.Close()
 	w := csv.NewWriter(file)
-
+	w.LazyQuotes = true
+    w.TrailingComma = true
+    w.TrimLeadingSpace = false 
 	for _, record := range records {
 		if err := w.Write(record); err != nil {
 			log.Fatalln("error writing record to csv:", err)
