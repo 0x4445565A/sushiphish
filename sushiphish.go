@@ -94,10 +94,7 @@ func buildCSV(profiles map[string]suspiciousDomain, fileName string) {
 		log.Fatal(err)
 	}
 	defer file.Close()
-	w := csv.NewWriter(file)
-	w.LazyQuotes = true
-    w.TrailingComma = true
-    w.TrimLeadingSpace = false 
+	w := csv.NewWriter(file) 
 	for _, record := range records {
 		if err := w.Write(record); err != nil {
 			log.Fatalln("error writing record to csv:", err)
