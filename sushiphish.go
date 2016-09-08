@@ -19,8 +19,10 @@ var hotList = []string{
 	"paypal",
 	"apple",
 	"amazon",
-	"login",
-	"secure",
+	"facebook",
+	"twitter",
+	"outlook",
+	"google",
 }
 
 // Extend this if there is more data you want to record (Like HTML etc)
