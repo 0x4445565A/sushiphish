@@ -11,3 +11,4 @@ sushiphish input.txt out.csv
 
 ## Inspiration
 Blog post from @ExecuteMalware
+https://twitter.com/executemalware/status/773576402343985152
